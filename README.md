@@ -25,16 +25,16 @@ Problems will branch into leaves, and transverses back up towards the root
 
 Example:
 `
-factorial(n):  
-    memo = {}  
-    if n == 0:  
-        return 1  
-    else if n in memo:  
-        return memo  
-    else  
-        ans = factorial(n-1) * factorial(n)  
-        memo.push(ans)  
-        return ans  
+factorial(n):\
+    memo = {}\
+    if n == 0:\
+        return 1\
+    else if n in memo:\
+        return memo \
+    else\
+        ans = factorial(n-1) * factorial(n)\
+        memo.push(ans)\
+        return ans\
 `
 ## Bottom-up / Tabulation
 Not using recursion at all, and also saves time and space.
