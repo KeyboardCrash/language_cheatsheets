@@ -23,25 +23,25 @@ This allows us to reduce the total amount of work done by the algorithm
 <b> This uses a type of caching table with efficient lookup times, loke a hash table </b>
 Problems will branch into leaves, and transverses back up towards the root
 
-Example:
+Example:\
 `
-factorial(n):\
-    memo = {}\
-    if n == 0:\
-        return 1\
-    else if n in memo:\
-        return memo \
-    else\
-        ans = factorial(n-1) * factorial(n)\
-        memo.push(ans)\
-        return ans\
+factorial(n):
+    memo = {}
+    if n == 0:
+        return 1
+    else if n in memo:
+        return memo
+    else
+        ans = factorial(n-1) * factorial(n)
+        memo.push(ans)
+        return ans
 `
 ## Bottom-up / Tabulation
 Not using recursion at all, and also saves time and space.
 Solves the last possible sub-problems first and uses partial results to arrive at the final result
 
 
-Example:
+Example:\
 `
 factorial(n):  
     fact = 1  
