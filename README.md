@@ -51,6 +51,69 @@ Example:
                 fact *= num  
         return num  
 
+## Approaching DP Problems
+There is a sequence that can be followed to find a good DP solution
+
+### Find the recursive relation
+Analyze the problem to find what the 'optimal step' is.
+
+i.e Robbing Houses you can choose to a.) Rob the current house or b.) Don't rob the current house
+Robbing means that houses i-1 and i+1 cannot be robbed next.
+
+Finding the most loot boils down to
+    * Rob current house + loot from previous
+    * Loot from previous and any prior to that
+
+Thus we have
+
+rob(i) = Math.max( rob(i-2) + currentValue, rob(i-1) )
+
+### Recursive Soln (Top-down)
+We can convert this recurrence to a code solution by just filling the base case
+and re-calling the function
+
+    if (i < 0):
+        return 0
+    return max(rob(nums, i-2) + nums[i], rob(nums, i-1))
+
+### Recursive + Memoization (Top-down)
+We can use a memoization table to remember the values that we solved.
+This will similarly use the recursion method, however we check for values, then compute, then add to the memoization table.
+
+    if (i < 0):
+        return 0
+    if memo[i] > 0:
+        return memo[i]
+    result = max(rob(nums, i-2) + nums[i], rob(nums, i-1))
+    if result not in memo:
+        memo[i] = result
+    return result
+
+### Iterative + Memoization (Bottom-up)
+Instead of recursion, we use loops to build up the memoization table
+
+    memo = []
+    # Base Case
+    memo[0] = 0
+    memo[1] = nums[0]
+
+    for i to len(nums):
+        memo[i+1] = max(memo[i], memo[i-1] + val)
+
+    return memo[-1]
+
+### Iterative + N Variables (Bottom-up)
+Similar to the Iterative + Memoization solution, however we only need to remember
+n variables rather than the entire table, thus we instantiate vars to hold our data instead
+
+    prev1 = 0
+    prev2 = 0
+    for num in nums:
+        tmp = prev1
+        prev1 = max(prev2 + num, prev1)
+        prev2 = tmp
+    return prev1
+
 ## Common Applications of Dynamic Programming
 * Longest Common Subsequence, Longest Increasing Subsequence, Longest Common Substring
 * Bellman-Ford algorithm
