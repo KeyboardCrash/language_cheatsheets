@@ -134,6 +134,39 @@ Given an input x1, x2, ..., xn, the subproblem will need to expand outward from 
 #### Matrix
 Given a 2 dimension array or matrix of Amn, the subproblem will boil down to some submatrix of Aij
 
+### Common DP Patterns
+
+
+#### Fibonacci Numbers
+
+* Climbing Stairs
+* House Robber
+* Fibonacci Number
+
+#### Zero / One Knapsack
+
+* Partition Equal Subset Sum
+* Target Sum
+
+#### Unbounded Knapsack
+
+* Coin Change
+* Coin Change 2
+* Minimum Cost for Tickets
+
+#### Longest Common Subsequence
+
+* Longest Common Subsequence
+* Longest Increasing Subsequence
+* Edit Distance
+* Distinct Subsequences
+
+#### Palindrome
+
+* Longest Palindromic Substring
+* Palindromic Substrings
+* Longest Palindromic Subsequence
+
 ### Common Applications of Dynamic Programming
 * Longest Common Subsequence, Longest Increasing Subsequence, Longest Common Substring
 * Bellman-Ford algorithm
