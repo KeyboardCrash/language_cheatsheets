@@ -117,6 +117,23 @@ n variables rather than the entire table, thus we instantiate vars to hold our d
         prev2 = tmp
     return prev1
 
+### Common Subproblem problem types
+
+#### Sequence
+Given a sequence n of x1, x2, ..., xn, then the subproblem will involve some sequence of x1, x2, ..., xi
+
+#### Sequence of n in random order
+Given a sequence n of x1, x2, ..., xn, the subproblem will require us to sort the input and return some optimal subsequence of x1, x2, ..., xi
+
+#### Multiple sequences
+Given an input x1, x2, ..., xn and y1, y2, ..., yn, the subproblem will be an appropriate subsequence of these two sequences such that x1, x2, ..., xi and y1, y2, ..., yi
+
+#### Unique sequence
+Given an input x1, x2, ..., xn, the subproblem will need to expand outward from the middle forming a subsequence of x1, xi+1, ..., xj
+
+#### Matrix
+Given a 2 dimension array or matrix of Amn, the subproblem will boil down to some submatrix of Aij
+
 ### Common Applications of Dynamic Programming
 * Longest Common Subsequence, Longest Increasing Subsequence, Longest Common Substring
 * Bellman-Ford algorithm
