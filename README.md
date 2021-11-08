@@ -1,7 +1,10 @@
 # Language Cheatsheets + Algorithm Cheatsheet
+Personal repository for storing algorithm notes and cheatsheets for quick development in different languages.
+
+Will add more things that I may find useful while leetcoding and learning how to solve new methods.
 
 # Algorithms
-List of various algorithm development techniques. These are used to solve the most common problems.\
+List of various algorithm development techniques. These are used to solve the most common problems.
 
 ## Dynamic Programming
 
@@ -63,9 +66,10 @@ Analyze the problem to find what the 'optimal step' is.
 i.e Robbing Houses you can choose to a.) Rob the current house or b.) Don't rob the current house
 Robbing means that houses i-1 and i+1 cannot be robbed next.
 
-Finding the most loot boils down to
-    * Rob current house + loot from previous
-    * Loot from previous and any prior to that
+Finding the most loot boils down to:
+
+* Rob current house + loot from previous
+* Loot from previous and any prior to that
 
 Thus we have
 
