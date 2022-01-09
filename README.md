@@ -26,9 +26,9 @@ There are two types of DP Approaches; Bottom-up and Top-down.
 
 ### Top-Down / Memoization
 A method to reduce the number of calls we are doing by caching the result of function calls.
-This allows us to reduce the total amount of work done by the algorithm.\
+This allows us to reduce the total amount of work done by the algorithm.
 
-<b>This uses a type of caching table with efficient lookup times, like a hash table.</b>\
+<b>This uses a type of caching table with efficient lookup times, like a hash table.</b>
 
 Problems will branch into leaves, and transverses back up towards the root to reach a final solution.
 
@@ -189,7 +189,7 @@ Given a 2 dimension array or matrix of Amn, the subproblem will boil down to som
 * [Knapsack Problem (e.g Coin Change)](https://leetcode.com/problems/coin-change/) Medium
 
 ## Brute Force Algorithms
-Simplest algorithm at the expense of space and time complexity. Used to formulate a solution that is conceptually simple but runs unnecessary computations.\
+Simplest algorithm at the expense of space and time complexity. Used to formulate a solution that is conceptually simple but runs unnecessary computations.
 
 Will typically have O(n^2) or worse runtime.
 
@@ -257,7 +257,7 @@ Relies on being able to <b>divide the problem into subproblems</b> and <b>solve 
 * Matrix Multiplication
 
 # Design Principles
-Most commonly used paradigms in industry. They are used in practice to develop 'good' code such that they follow a set of rules that should be followed for consistency rather than arguing over inconsistencies in code practice.\
+Most commonly used paradigms in industry. They are used in practice to develop 'good' code such that they follow a set of rules that should be followed for consistency rather than arguing over inconsistencies in code practice.
 
 Using design principles removes the need to debate simple tradeoffs, and helps designers not worry about complex problems.
 
@@ -275,12 +275,12 @@ The abstractions shouldn't handle what the extendables should handle.
 Every subclass or derived class should be substitutable for their base or parent class.
 
 ### Interface Segregation Principle
-A client should not implement an interface that it doesn't use, or clients shouldn't be forced to depend on methods they do not use.\
+A client should not implement an interface that it doesn't use, or clients shouldn't be forced to depend on methods they do not use.
 
 Instead of implementing a general property that is of no use to most inherited objects, instead create another interface to implement the property.
 
 ### Dependency Inversion Principle
-Entities must depend on abstractions, not concretions. High level models must not depend on the low-level module, but should depend on abstraction.\
+Entities must depend on abstractions, not concretions. High level models must not depend on the low-level module, but should depend on abstraction.
 
 This principle allows for decoupling.
 
