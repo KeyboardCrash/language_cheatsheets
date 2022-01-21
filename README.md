@@ -246,6 +246,218 @@ Relies on being able to <b>divide the problem into subproblems</b> and <b>solve 
 * Median Finding
 * Matrix Multiplication
 
+# Coding Question Patterns
+Many coding questions follow a pattern, which when recognized can be simple to solve with a generic
+solution for the pattern.
+
+## 1. Sliding Window
+The sliding window is used to perform operations on a specific window size like finding a max subarray.
+Starting from the first element and shifting right to adjust the length of the window will allow us to find a solution to these problems.
+
+### Identifying Sliding Window questions
+- The input is linear such as a linked list, array, string
+- The problem requires us to find the <b>substring</b>, <b>subarray</b>, or <b>desired value</b>
+
+### Common problems
+- Max sum subarray of size k
+- Longest substring with k distinct characters
+- String anagrams
+
+## 2. Pointers or Iterators
+This pattern has two pointesr that iterate through that data structure until the pointers hit a condition. It is useful when searching pairs in a sorted array / linked list to do comparisons of elements.
+
+### Identifying Pointer/Iterator questions
+- Problems dealing wth sorted arrays / linked lists, and finding a set of elements to fulfill certain criteria
+- Set of elements in the array are pairs, triplets, or subarrays
+
+### Common Problems
+- Squaring a sorted array
+- Tripets that sum to zero
+- Comparing strings that contain backspaces
+
+## 3. Fast and Slow Pointers
+Using two pointers that move through an array / sequence at different speeds. <b>Often useful when dealing with cyclic linked lists or arrays.</b>
+
+By moving at different speeds, algorithm proves two pointers bound to meet
+
+### Identifying Fast/Slow Pointers
+- Problem deals with linked list / array
+- When we need to know the position of certain element, or overall length of linked list
+
+#### Fast/Slow Pointers vs Pointer/Iterator
+There are cases where Two Pointers shouldnt be used such as singly linked list, where we cant move backwards. Fast/Slow can determine if a linked list is a palindrome
+
+### Common Problems
+- Linked List Cycle
+- Palindrome Linked List
+- Cycle in a Circular Array
+
+## 4. Merge Intervals
+Used when dealing with overlapping intervals. Can be used to find overlapping intervals or merge intervals that overlap.
+Six cases can be used when identifying merged intervals
+
+    1. a and b do not overlap, a finishes first
+    2. b overlaps with a, b ends after a
+    3. a completely overlaps b
+    4. b overlaps a, a ends after b
+    5. b completely overlaps a
+    6. a and b do not overlap, b finishes first
+
+### Common Problems
+- Produce a list with mutually exclusive intervals (no overlap)
+- Overlapping intervals is mentioned in the problem
+- Interval intersection
+- Max CPU Load (max intersections)
+
+## 5. Cyclic Sort
+Dealing with problems involving arrays with numbers in a given range. Iterating over the array, swap the values into its correct index
+
+### Identifying Cyclic Sort Problems
+- The problem involves a sorted array with numbers
+- The problem wants to find the missing / duplicate / smallest number in a sorted / rotated array
+
+### Common Problems
+- Find Missing Number
+- Find Smallest Missing Positive Number
+
+## 6. In-place reversal of linked list
+Also known as reversing a linked list, but space constrained. Receiving one node at a time, have a set of variables (previous for the last processed node, current for the current node) and process in lock-step manner.
+
+    1. Set current and previous (null if doesn't exist)
+    2. Go to the next node, set new current, previous pointed to last node
+
+### Identifying linked list reversal
+- Asked to reverse a linked list without extra memory
+
+### Common Problems
+- Reversing a sub-list
+- Reverse every k-element sub-list
+
+## 7. Tree BFS
+Use BFS to transverse a tree, queue to keep track of next search before jumping to the next level. Starting with the root in the queue, adds all nodes that are direct descendents to the queue and when processing them, we remove it from the head and note it as visited, then check for the problem's criteria.
+
+### Identifying Tree BFS problems
+- Asked to transverse tree in level-by-level fashion or level-order transversal
+
+### Common Problems
+- Binary Tree Level Order Transversal
+- Zigzag Transversal
+
+## 8. Tree DFS
+Use DFS to transverse a tree, can be done with recursion or a stack/iterative approach to keep track of the previous parents while transversing.
+
+Tree DFS works by starting at the root and deciding
+
+    1. Whether to process current node now, or between processing two children (pre-order or in-order)
+    2. Making two recursive calls for the children of the current node to process them
+
+### Identifying Tree DFS problems
+- Asked to traverse tree with in-order, preorder or postorder DFS
+- If problem requries searching for something where node is closer to a leaf
+
+### Common Problems
+- Sum of Path Numbers
+- All paths for a sum
+
+## 9. Two Heaps
+Given a set of elements that we can divide into two parts, and interested in knowing smallest element in one part and largest in the other.
+
+Can use a Min Heap and a Max Heap to find the min and max parts
+
+### Identifying Two Heap problems
+- Useful in priority queues, scheduling
+- If problem states to find smallest/largest/median element of a set
+- Sometimes useful in problems with binary tree data structure
+
+### Common Problems
+- Find Median of Number Stream
+
+## 10. Subsets
+Many interview problems deal with permutations nad combinations of a set of elements. Subset patterns describe an efficient BFS approach.
+
+Given a set of elements [1, 5, 3]
+
+    1. Start with an empty set [[]]
+    2. Add first number to all existing subsets to create new subsets [[], [1]]
+    3. Add second number to all subsets [[], [1], [5], [1, 5]]
+    4. Continue with rest of numbers in copy-add pattern
+
+### Identifying Subset Problems
+- Problems where combinations or permutations must be found
+
+### Common Problems
+- Subsets with Duplicates
+- String Permutations by changing case
+
+## 11. Modified Binary Search
+When given a sorted array, linked list, matrix, and are required to find a certain element, a modified binary search works best.
+
+Patterns look like this for ascending sets
+
+    1. Find middle of the start and end. Can either take strict middle or prevent integer overflow with mid = start + (end - start) / 2
+    2. If Key equal to number at middle then return middle
+    3. If Key isn't equal
+        3.1 Check key < arr[mid] and reduce search to left side
+        3.2 Check key > arr[mid] and reduce search to right side
+
+## 12. Top k elements
+Problems that ask to find the top/smallest/most frequent k element among a set fall under this pattern. We can keep track of k elements with a heap
+
+    1. Insert k elements into min-heap or max-heap
+    2. Iterate through remaining numbers. If bigger number is found than what is in the heap, then remove the number and insert the larger one
+
+Heap keeps track of element sizes for us, no need to sort
+
+### Identifying top k element problems
+- If asked to find top/smallest/frequent k elements of a given set
+- Asked to sort an array to find an exact element
+
+### Common Problems
+- Top k numbers
+- Top k frequent numbers
+
+# 13. K-way Merge
+Problems with k sorted arrays can use a heap to efficiently perform sorted traversal of all elements of all arrays. We can push smallest elements of each array into a min-heap to get the overall min, then push each element same way into the heap to make a sorted traversal.
+
+    1. Insert first element of each array into the min heap
+    2. Take out smallest (top) element from heap and add to merged list
+    3. After removing smallest element, insert next element of the same list into the heap
+    4. Request 2 and 3 until the heap is empty and merged list in sorted order
+
+### Identifying K-way merge problems
+- Features sorted arrays, lists, matrixes
+- The problem asks for merging sorted lists, finding smallest element in a sorted list
+
+### Common Problems
+- Merge K sorted lists
+- K pairs wiht largest sums
+
+## 14. Topological Sort
+Find linear ordering of elements that have dependencies on each other.
+
+    1. Initialize the data.
+        a. Store data in adjacency lists with a hash map
+        b. Find all sources, use hashmap to keep count of in-degrees. Build the graph and find in-degrees of all vertices
+    2. Build the graph from the input and populate the in-degrees hash map
+    3. Find all sources
+        a. Verticies with 0 in-degrees
+    4. Sort the hash map
+        a. Go to each source
+            i. Add to the sorted list
+            ii. Get children
+            iii. Decrement in-degree of each child by 1
+            iv. If child in-degree becomes 0, add to sources queue
+        b. Repeat until source queue is empty
+
+### Identifying Topological Sort Problems
+- Problems has graphs with undirected cycles
+- Update objects in a sorted order
+- Class of objects that follow order
+
+### Common Problems
+- Task Scheduling
+- Min height of a tree
+
 # Design Principles
 Most commonly used paradigms in industry. They are used in practice to develop 'good' code such that they follow a set of rules that should be followed for consistency rather than arguing over inconsistencies in code practice.\
 
